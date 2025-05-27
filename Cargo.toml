@@ -1,0 +1,24 @@
+[package]
+name = "pqmagic-rust"
+version = "0.1.0"
+edition = "2024"
+build = "build.rs"
+
+[lib]
+name = "pqmagic"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+libc = "0.2"
+rand = "0.9.1"
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "sig_benches"
+harness = false  
+
+[[bench]]
+name = "kem_benches"
+harness = false  
