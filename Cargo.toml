@@ -3,6 +3,7 @@ name = "pqmagic-rust"
 version = "0.1.0"
 edition = "2024"
 build = "build.rs"
+links = "pqmagic"
 
 [lib]
 name = "pqmagic"
@@ -14,6 +15,9 @@ rand = "0.9.1"
 
 [dev-dependencies]
 criterion = { version = "0.5", features = ["html_reports"] }
+
+[build-dependencies]
+cmake = "0.1"
 
 [[bench]]
 name = "sig_benches"

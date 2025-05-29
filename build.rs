@@ -1,13 +1,18 @@
+use std::{env, path::Path};
+use cmake::Config;
+
 fn main() {
-    let lib_path = std::env::current_dir()
-        .unwrap()
-        .join("vendor")
-        .to_string_lossy()
-        .to_string();
-    
-    println!("cargo:rustc-link-search=native={}", lib_path);
+    let manifest_dir = env::var("CARGO_MANIFEST_DIR")
+        .expect("CARGO_MANIFEST_DIR is NOT SET");
+
+    let src_dir = Path::new(&manifest_dir).join("vendor/PQMagic");
+
+    let dst = Config::new(&src_dir)
+        .profile("Release")
+        .build();
+
+    println!("cargo:rustc-link-search=native={}/lib", dst.display());
     println!("cargo:rustc-link-lib=dylib=pqmagic_std");
-    println!("cargo:rustc-env=LD_LIBRARY_PATH={}", lib_path);
-    
-    println!("cargo:rerun-if-changed=vendor");
+
+    println!("cargo:rerun-if-changed={}", src_dir.display());
 }

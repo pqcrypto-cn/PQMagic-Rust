@@ -11,26 +11,15 @@ The rust bindings for [PQMagic](https://github.com/pqcrypto-cn/PQMagic) , a post
 - Cross-platform support
 
 ## Prerequisites
-- Rust 1.70+ (2024 edition)
+- Rust Toolchain
 
-- PQMagic library binaries
-
-## Installation
-Install the PQMagic library in one of these locations:
-
-- Project's `vendor/` directory (recommended    for development)
-
-- System library path (e.g., `/usr/local/lib`)
-
-- Custom location (requires setting     `LD_LIBRARY_PATH`)
-
-
+- cmake >= 3.10 （ For PQMagic builds ）
 
 ## Building
 
 ```bash
 # Clone the repository
-git clone https://github.com/pqcrypto-cn/PQMagic-Rust.git
+git clone --recursive https://github.com/pqcrypto-cn/PQMagic-Rust.git
 cd PQMagic-Rust
 
 # Build and run tests
@@ -41,11 +30,6 @@ cargo test
 cargo bench
 ```
 
-> Note: If PQMagic is not installed in the `vendor/` directory, set the library path:
-
-```bash
-LD_LIBRARY_PATH=/path/to/pqmagic/lib cargo test
-```
 
 ## Usage
 ### Digital Signatures (SIG)
