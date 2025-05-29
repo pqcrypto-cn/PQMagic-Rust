@@ -1,3 +1,4 @@
 [submodule "vendor/PQMagic"]
 	path = vendor/PQMagic
 	url = https://github.com/pqcrypto-cn/PQMagic.git
+	branch = main
